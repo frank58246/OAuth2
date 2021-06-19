@@ -2,12 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>59d80102-107e-407c-9ec7-3eac7e49664d</UserSecretsId>
+    <UserSecretsId>ababa5e7-1de5-4999-8b06-53db356d9b66</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityServer4" Version="4.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.16" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.13" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OAuth.Common\OAuth.Common.csproj" />
+  </ItemGroup>
+
+
 </Project>
