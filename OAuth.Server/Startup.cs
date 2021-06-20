@@ -25,9 +25,11 @@ namespace OAuth.Server
         {
             services.AddControllersWithViews();
             services.AddIdentityServer()
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddDeveloperSigningCredential()
                 .AddInMemoryApiScopes(Config.GetApiScopes())
-                .AddInMemoryClients(Config.GetClients());
+                .AddInMemoryClients(Config.GetClients())
+                .AddTestUsers(Config.GetTestUsers());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,11 +46,14 @@ namespace OAuth.Server
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
+
+            app.UseRouting();
 
             app.UseIdentityServer();
 
-            app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

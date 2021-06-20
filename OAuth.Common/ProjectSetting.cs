@@ -14,6 +14,8 @@ namespace OAuth.Common
             public static string OAuthServer = $"https://{_domain}:49001";
 
             public static string ResourceApi = $"https://{_domain}:49003";
+
+            public static string MvcClient = $"https://{_domain}:49005";
         }
     }
 }
